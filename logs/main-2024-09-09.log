@@ -1,1 +1,0 @@
-ERROR: 2024/09/09 16:33:54 sotre.go:60: sql: Scan called without calling Next
