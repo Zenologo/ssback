@@ -147,7 +147,7 @@ func (h *Handler) handleGetUser(w http.ResponseWriter, r *http.Request) {
 func (h *Handler) hangleCaptcha(w http.ResponseWriter, r *http.Request) {
 	var response types.Captcha
 	response.Code = 0
-  response.Data = "https://www.google.fr"
+  response.Data = "https://www.google.com"
 	response.Message = "this is a test"
 	utils.WriteJSON(w, http.StatusOK, response)
 }
