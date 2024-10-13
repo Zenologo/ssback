@@ -1,6 +1,7 @@
 package main
 
 import (
+  "os"
 	"database/sql"
 	"fmt"
 	"log"
@@ -15,6 +16,7 @@ import (
 )
 
 func init() {
+  os.Mkdir("../logs", 0755);
 	current_time := time.Now().Local()
 	fileName := "main-" + current_time.Format("2006-01-02") + ".log"
 	logger.InitLog("../logs/" + fileName)
@@ -36,7 +38,7 @@ func main() {
 	pingDB(db)
 
 	logger.Info.Println("ping DataBase")
-
+  fmt.Println("server addresse: ", configs.Envs.Port)
 	server := api.NewAPIServer(fmt.Sprintf(":%s", configs.Envs.Port), db)
 	if err := server.Run(); err != nil {
 		log.Fatal(err)

@@ -31,7 +31,7 @@ func (h *Handler) RegisterRoutes(router *mux.Router) {
 	router.HandleFunc("/users/{userID}", auth.WithJWTAuth(h.handleGetUser, h.store)).Methods(http.MethodGet)
 
 	// Login Code
-	router.HandleFunc("/api/v1/login/code}", h.hangleCaptcha).Methods(http.MethodGet)
+	router.HandleFunc("/login/code", h.hangleCaptcha).Methods(http.MethodGet)
 }
 
 func (h *Handler) handleLogin(w http.ResponseWriter, r *http.Request) {
